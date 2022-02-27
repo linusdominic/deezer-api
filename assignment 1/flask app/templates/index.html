@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+    <h1>Linus' TODO APP</h1>
+    
+    <form action="/add-todo" method="post">
+        <div>
+            <label>Tell me what do you want to do? </label>
+            <input type="text" name="todo" placeholder="Enter your todo here">
+       
+            <button type="submit">Add TODO</button>
+        </div>
+    </form>
+
+
+
+    {% if todo_list == [] %}
+        <ul>
+        <li>Seems like you have nothing to do!</li>
+        </ul>
+
+    {% else %}
+    {% for todo in range(todo_list| length) %}
+    <ul>
+    <li>{{todo_list[todo]}} <button><a href="/delete/{{todo}}">Delete Todo</a></button> </li>
+    
+    </ul>
+    {% endfor %}
+    {% endif %}
+    <br>
+
+   
+</body>
+</html>
